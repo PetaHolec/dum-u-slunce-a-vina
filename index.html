@@ -1,0 +1,539 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dům u Slunce a Vína – ubytování nad sklepem v Olbramovicích</title>
+  <meta name="description" content="Celý dům pro až 6 hostů nad vinným sklepem ze 14. století v Olbramovicích u Moravského Krumlova. Terasa s grilem a udírnou, zahrada, krb a láhev vína na uvítanou.">
+  <meta name="theme-color" content="#f1ece1">
+  <link rel="canonical" href="https://www.olbramovicerelax.cz/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="cs_CZ">
+  <meta property="og:title" content="Dům u Slunce a Vína Olbramovice">
+  <meta property="og:description" content="Domov na dovolené – pohodlí a klid s vůní vína a dotekem moravského slunce.">
+  <meta property="og:image" content="https://www.olbramovicerelax.cz/img/terasa-posezeni.jpg">
+  <meta property="og:url" content="https://www.olbramovicerelax.cz/">
+
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="fonts/fraunces-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/instrument-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="vendor/leaflet/leaflet.css">
+  <link rel="stylesheet" href="css/style.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LodgingBusiness",
+    "name": "Dům u Slunce a Vína",
+    "description": "Ubytování v domě nad historickým vinným sklepem v Olbramovicích.",
+    "url": "https://www.olbramovicerelax.cz/",
+    "image": "https://www.olbramovicerelax.cz/img/dum-pruceli.jpg",
+    "telephone": "+420608965498",
+    "email": "olbramovicerelax@gmail.com",
+    "address": { "@type": "PostalAddress", "streetAddress": "Olbramovice 344", "addressLocality": "Olbramovice", "postalCode": "671 76", "addressCountry": "CZ" },
+    "geo": { "@type": "GeoCoordinates", "latitude": 48.99407, "longitude": 16.39274 },
+    "checkinTime": "15:00",
+    "checkoutTime": "10:00",
+    "petsAllowed": true,
+    "numberOfRooms": 2,
+    "sameAs": ["https://www.facebook.com/olbramovicesunandwine", "https://www.instagram.com/uslunceavina_olbramovicerelax"]
+  }
+  </script>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <!-- kované slunce z fasády domu -->
+    <symbol id="i-sun" viewBox="0 0 100 100">
+      <g fill="none" stroke="currentColor" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="50" cy="50" r="24"/>
+        <path id="ray" d="M50 22 C46 16 54 12 50 4"/>
+        <use href="#ray" transform="rotate(45 50 50)"/><use href="#ray" transform="rotate(90 50 50)"/>
+        <use href="#ray" transform="rotate(135 50 50)"/><use href="#ray" transform="rotate(180 50 50)"/>
+        <use href="#ray" transform="rotate(225 50 50)"/><use href="#ray" transform="rotate(270 50 50)"/>
+        <use href="#ray" transform="rotate(315 50 50)"/>
+      </g>
+      <path fill="currentColor" d="M47 30h6v6.5c0 2 4.5 4 4.5 9.5V69a2.5 2.5 0 0 1-2.5 2.5H45A2.5 2.5 0 0 1 42.5 69V46c0-5.5 4.5-7.5 4.5-9.5z"/>
+    </symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-left" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-right" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+    <symbol id="i-fb" viewBox="0 0 24 24"><path fill="currentColor" d="M13.5 21v-7.5H16l.4-3h-2.9V8.6c0-.9.3-1.5 1.5-1.5h1.5V4.4c-.3 0-1.2-.1-2.2-.1-2.2 0-3.7 1.3-3.7 3.8v2.4H8v3h2.6V21z"/></symbol>
+    <symbol id="i-ig" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r=".6" fill="currentColor"/></g></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+    <symbol id="i-minus" viewBox="0 0 24 24"><path d="M5 12h14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+    <!-- zvlněná střecha domu – hlavní motiv webu -->
+    <symbol id="roof" viewBox="0 0 1440 90" preserveAspectRatio="none"><path d="M0 90V58C140 58 200 6 380 6C540 6 600 44 760 44C920 44 990 26 1140 26C1260 26 1340 30 1440 30V90Z"/></symbol>
+  </defs>
+</svg>
+
+<a class="skip" href="#obsah">Přeskočit na obsah</a>
+
+<!-- ============ HLAVIČKA ============ -->
+<header class="top" id="header">
+  <a class="brand" href="#top" aria-label="Dům u Slunce a Vína – úvod">
+    <svg class="brand__sun"><use href="#i-sun"/></svg>
+    <span>Dům u&nbsp;Slunce a&nbsp;Vína</span>
+  </a>
+  <nav class="nav" id="nav" aria-label="Hlavní menu">
+    <a href="#dum"><i>01</i>Dům</a>
+    <a href="#album"><i>02</i>Fotky</a>
+    <a href="#cenik"><i>03</i>Ceník</a>
+    <a href="#okoli"><i>04</i>Okolí</a>
+    <a href="#kontakt"><i>05</i>Kontakt</a>
+  </nav>
+  <a class="btn btn--brick top__cta" href="#rezervace">Rezervovat</a>
+  <button class="burger" id="burger" aria-label="Otevřít menu" aria-expanded="false" aria-controls="nav"><span></span><span></span></button>
+</header>
+
+<main id="obsah">
+
+<!-- ============ ÚVOD ============ -->
+<section class="hero" id="top">
+  <div class="hero__text">
+    <p class="hero__addr">Sklepní ulička&ensp;·&ensp;Olbramovice č.&nbsp;p.&nbsp;344</p>
+    <h1 class="hero__title" data-split>Dům u&nbsp;Slunce <em>a&nbsp;Vína</em></h1>
+    <p class="hero__lead">Celý dům jen pro vás. Pro šest hostů, s&nbsp;krbem, terasou a&nbsp;grilem – a&nbsp;pod podlahou sklep, který pamatuje 14.&nbsp;století.</p>
+    <div class="hero__cta">
+      <a class="btn btn--brick btn--lg" href="#rezervace">Vybrat termín <svg><use href="#i-arrow"/></svg></a>
+      <a class="hero__free" href="#rezervace">
+        <span class="hand">nejbližší volno</span>
+        <b id="nextFree">hledám…</b>
+      </a>
+    </div>
+    <ul class="hero__facts">
+      <li>až 6 hostů + miminko</li><li>2 ložnice</li><li>krb · gril · udírna</li><li>pejsci vítáni</li>
+    </ul>
+  </div>
+
+  <div class="hero__visual">
+    <svg class="hero__sun" aria-hidden="true"><use href="#i-sun"/></svg>
+    <div class="hero__frame">
+      <div class="hero__slide is-active" style="background-image:url(img/dum-pruceli.jpg)"></div>
+      <div class="hero__slide" style="background-image:url(img/terasa-posezeni.jpg)"></div>
+      <div class="hero__slide" style="background-image:url(img/zahrada-terasa.jpg)"></div>
+      <div class="hero__slide" style="background-image:url(img/vyhled-krajina.jpg)"></div>
+    </div>
+    <svg class="hero__roof" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path d="M0 20C10 20 13 4 28 4C42 4 46 15 60 15C74 15 80 8 100 8" vector-effect="non-scaling-stroke"/></svg>
+    <p class="hero__note hand" aria-hidden="true">
+      <svg viewBox="0 0 120 90"><path class="draw" d="M8 8C30 4 70 10 84 34C96 54 88 70 76 82M76 82l2-14M76 82l-13-5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" pathLength="1"/></svg>
+      a pod tím vším<br>sklep ze 14. století
+    </p>
+    <div class="hero__count" aria-hidden="true"><b id="slideNo">01</b>/04</div>
+  </div>
+</section>
+
+<!-- ============ DŮM V ŘEZU ============ -->
+<section class="section cut" id="dum">
+  <svg class="wave wave--top" aria-hidden="true"><use href="#roof"/></svg>
+  <div class="wrap">
+    <div class="cut__head">
+      <p class="tag">č. 1 &mdash; dům</p>
+      <h2 class="h2 reveal">Nahoře dům, <em>dole sklep</em></h2>
+      <div class="cut__intro reveal">
+        <p>Dům vyrostl v&nbsp;letech 1998–2000 přímo nad starým vinným sklepem. Olbramovické sklepy leží kousek od Pravlovské cesty, kudy kdysi vedla hranice mezi Královstvím českým a&nbsp;rakouskými zeměmi.</p>
+        <p>Dnes jste na rozhraní Znojemské a&nbsp;Mikulovské vinařské podoblasti. Najeďte na čísla a&nbsp;projděte si dům.</p>
+      </div>
+    </div>
+
+    <div class="cut__stage">
+      <figure class="cut__drawing" id="cutDrawing">
+        <svg viewBox="0 70 1000 550" role="img" aria-label="Kreslený řez domem: nahoře dům s terasou a zahradou, pod zemí historický sklep">
+          <defs>
+            <pattern id="earth" width="14" height="14" patternUnits="userSpaceOnUse" patternTransform="rotate(35)">
+              <rect width="14" height="14" fill="#e9dcc6"/><line x1="0" y1="0" x2="0" y2="14" stroke="#d3bd9c" stroke-width="2"/>
+            </pattern>
+            <radialGradient id="glow"><stop offset="0" stop-color="#f6c66a" stop-opacity=".75"/><stop offset="1" stop-color="#f6c66a" stop-opacity="0"/></radialGradient>
+          </defs>
+
+          <!-- kopce v dálce -->
+          <path class="ln ln--soft" d="M0 250C120 210 210 236 300 222C420 204 520 178 640 196C760 214 860 186 1000 200"/>
+          <!-- vinice vlevo -->
+          <path class="ln" d="M20 330V276M80 330V270M140 330V266M200 330V266M260 330V272"/>
+          <path class="ln ln--green" d="M14 284C30 274 44 292 60 282S92 272 108 280S140 270 156 278S190 268 206 276S240 270 268 280"/>
+          <path class="ln ln--green" d="M14 300C30 292 44 306 60 298S92 290 108 296S140 288 156 294S190 286 206 292S240 288 268 296"/>
+          <circle class="grape" cx="52" cy="292" r="5"/><circle class="grape" cx="124" cy="286" r="5"/><circle class="grape" cx="196" cy="284" r="5"/><circle class="grape" cx="236" cy="290" r="5"/>
+
+          <!-- dům -->
+          <path class="house" d="M300 206C340 206 360 132 425 130C485 128 505 176 565 176C620 176 640 162 700 162V330H300Z"/>
+          <rect class="plinth" x="300" y="314" width="400" height="16"/>
+          <path class="ln roofline" d="M286 208C337 208 358 128 425 126C487 124 506 172 565 172C622 172 642 158 714 158"/>
+          <path class="ln" d="M300 206V330M700 162V330"/>
+          <path class="ln win" d="M366 198V180a17 17 0 0 1 34 0v18zM412 198V180a17 17 0 0 1 34 0v18z"/>
+          <path class="ln ln--thin" d="M383 164V198M429 164V198M366 186h34M412 186h34"/>
+          <path class="ln ln--thick" d="M350 240H468"/>
+          <path class="ln door" d="M380 330V272a26 26 0 0 1 52 0v58z"/>
+          <circle class="dot-ink" cx="424" cy="300" r="2.5"/>
+          <path class="ln ln--thin" d="M454 252v-10h8v10z"/>
+          <rect class="ln ln--thick" x="512" y="238" width="52" height="8"/><rect class="ln win" x="520" y="250" width="36" height="50"/>
+          <rect class="ln ln--thick" x="604" y="238" width="52" height="8"/><rect class="ln win" x="612" y="250" width="36" height="50"/>
+          <path class="ln ln--thin" d="M532 250v50M544 250v50M520 268h36M520 284h36M624 250v50M636 250v50M612 268h36M612 284h36"/>
+          <use class="facade-sun" href="#i-sun" x="586" y="186" width="44" height="44"/>
+
+          <!-- terasa s pergolou -->
+          <path class="ln" d="M752 330V244M884 330V244M736 244H904"/>
+          <path class="ln ln--thin" d="M752 236v16M786 236v16M820 236v16M854 236v16M884 236v16"/>
+          <path class="ln" d="M786 300h70M800 300v30M842 300v30"/>
+          <path class="ln ln--thin" d="M772 330v-26h-12M870 330v-26h12"/>
+          <path class="ln" d="M806 300v-10l4-12h6l4 12v10"/>
+          <!-- gril s kouřem -->
+          <path class="ln" d="M912 300h40a20 14 0 0 1-40 0zM920 314l-6 16M944 314l6 16"/>
+          <path class="smoke" d="M924 290c-6-8 6-12 0-20s6-12 0-20"/>
+          <path class="smoke smoke--2" d="M938 288c-6-8 6-12 0-20s6-12 0-20"/>
+          <!-- strom -->
+          <path class="ln" d="M972 330V262"/>
+          <path class="ln ln--green" d="M972 268c-26 2-36-22-22-36-6-22 18-34 30-22 16-12 38 2 30 20 16 12 6 38-14 36-6 6-18 6-24 2z"/>
+          <path class="ln ln--thin" d="M712 330v-18M732 330v-18M712 318H740M992 330v-18"/>
+
+          <!-- zem -->
+          <rect x="0" y="330" width="1000" height="290" fill="url(#earth)"/>
+          <path class="ln ln--thick" d="M0 330H1000"/>
+          <path class="ln ln--green" d="M10 330l4-8 4 8M60 330l3-7 3 7M150 330l4-8 4 8M228 330l3-7 3 7M722 330l3-7 3 7M940 330l4-8 4 8"/>
+
+          <!-- schody do sklepa -->
+          <path class="cellar-bg" d="M318 330H352V458H318z"/>
+          <path class="ln" d="M318 330V458M352 330V444"/>
+          <path class="ln ln--thin" d="M318 352h20v18h-20M318 388h22v18h-22M318 424h26"/>
+          <!-- sklep -->
+          <path class="cellar-bg" d="M352 572V470Q352 420 402 420H848Q898 420 898 470V572Z"/>
+          <circle cx="575" cy="480" r="110" fill="url(#glow)" class="lamp-glow"/>
+          <path class="ln ln--brick" d="M440 422V572M530 422V572M620 422V572M710 422V572M800 422V572"/>
+          <path class="ln ln--brick" d="M352 440h40M352 470h20M858 440h40M878 470h20"/>
+          <path class="ln ln--thick" d="M352 572V470Q352 420 402 420H848Q898 420 898 470V572"/>
+          <path class="ln ln--thin" d="M575 420v26"/><path class="ln" d="M567 446h16l-3 8h-10z"/>
+          <rect class="ln barrel" x="640" y="512" width="86" height="56" rx="26"/>
+          <path class="ln ln--thin" d="M662 512v56M704 512v56"/>
+          <rect class="ln barrel" x="734" y="512" width="86" height="56" rx="26"/>
+          <path class="ln ln--thin" d="M756 512v56M798 512v56"/>
+          <rect class="ln barrel" x="688" y="462" width="80" height="50" rx="24"/>
+          <path class="ln ln--thin" d="M708 462v50M748 462v50"/>
+          <path class="ln" d="M420 536h110M432 536v36M518 536v36"/>
+          <path class="ln" d="M446 536v-24l4-8v-8h6v8l4 8v24M478 536v-20l3-6v-8h5v8l3 6v20"/>
+          <path class="ln ln--thick" d="M352 572H898"/>
+          <text class="hand-svg" x="380" y="606">sklep · kolem 14. století</text>
+          <text class="hand-svg" x="18" y="236">vinice</text>
+
+          <!-- body -->
+          <g class="hs" data-spot="1" tabindex="0" role="button" aria-label="Terasa s grilem"><circle cx="820" cy="214" r="17"/><text x="820" y="220">1</text></g>
+          <g class="hs" data-spot="2" tabindex="0" role="button" aria-label="Společenská místnost s krbem"><circle cx="476" cy="290" r="17"/><text x="476" y="296">2</text></g>
+          <g class="hs" data-spot="3" tabindex="0" role="button" aria-label="Ložnice"><circle cx="406" cy="100" r="17"/><text x="406" y="106">3</text></g>
+          <g class="hs" data-spot="4" tabindex="0" role="button" aria-label="Kuchyně"><circle cx="512" cy="208" r="17"/><text x="512" y="214">4</text></g>
+          <g class="hs" data-spot="5" tabindex="0" role="button" aria-label="Koupelna"><circle cx="672" cy="210" r="17"/><text x="672" y="216">5</text></g>
+          <g class="hs" data-spot="6" tabindex="0" role="button" aria-label="Zahrada"><circle cx="972" cy="200" r="17"/><text x="972" y="206">6</text></g>
+          <g class="hs" data-spot="7" tabindex="0" role="button" aria-label="Sklep"><circle cx="596" cy="500" r="17"/><text x="596" y="506">7</text></g>
+        </svg>
+      </figure>
+
+      <div class="cut__side">
+        <figure class="cut__photo">
+          <img id="cutImg" src="img/terasa-posezeni-s.jpg" alt="Terasa s posezením">
+        </figure>
+        <ol class="cut__list" id="cutList">
+          <li data-spot="1" tabindex="-1"><b>Terasa s&nbsp;grilem a&nbsp;udírnou</b><span>Sklenka vína, maso z&nbsp;grilu a&nbsp;slunce do večera.</span></li>
+          <li data-spot="2" tabindex="-1"><b>Společenská místnost s&nbsp;krbem</b><span>Trámový strop a&nbsp;velký stůl pro celou partu.</span></li>
+          <li data-spot="3" tabindex="-1"><b>Dvě ložnice</b><span>Pro 4 osoby, s&nbsp;přistýlkami až pro 6.</span></li>
+          <li data-spot="4" tabindex="-1"><b>Kuchyně</b><span>Sporák, trouba, lednice, nádobí.</span></li>
+          <li data-spot="5" tabindex="-1"><b>Koupelna</b><span>Rohová vana, sprcha a&nbsp;dvě umyvadla.</span></li>
+          <li data-spot="6" tabindex="-1"><b>Oplocená zahrada</b><span>Bezpečná pro děti i&nbsp;psy.</span></li>
+          <li data-spot="7" tabindex="-1"><b>Sklep ze 14.&nbsp;století</b><span>Chladivá klenba na večerní degustaci.</span></li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SOUPIS ============ -->
+<section class="section ledger">
+  <div class="wrap ledger__grid">
+    <figure class="ledger__img reveal">
+      <img src="img/sklenka-vina-s.jpg" alt="Sklenka červeného vína na terase" loading="lazy">
+      <figcaption class="hand">láhev na uvítanou<br>od místního vinaře</figcaption>
+    </figure>
+    <div>
+      <p class="tag">č. 2 &mdash; soupis</p>
+      <h2 class="h2 reveal">Co v&nbsp;domě <em>najdete</em></h2>
+      <dl class="inv">
+        <div class="reveal"><dt>Celý dům</dt><dd>jen pro vás</dd></div>
+        <div class="reveal"><dt>Hosté</dt><dd>až 6 + 1 miminko</dd></div>
+        <div class="reveal"><dt>Ložnice</dt><dd>2</dd></div>
+        <div class="reveal"><dt>Krb</dt><dd>1</dd></div>
+        <div class="reveal"><dt>Gril a&nbsp;udírna</dt><dd>na terase</dd></div>
+        <div class="reveal"><dt>Zahrada</dt><dd>oplocená</dd></div>
+        <div class="reveal"><dt>Postýlka, židlička, zábrana</dt><dd>pro nejmenší</dd></div>
+        <div class="reveal"><dt>Pes</dt><dd>vítán</dd></div>
+        <div class="reveal"><dt>Láhev vína</dt><dd>na uvítanou</dd></div>
+        <div class="reveal"><dt>Místní poplatek</dt><dd>v&nbsp;ceně</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ALBUM ============ -->
+<section class="section album" id="album">
+  <svg class="wave wave--top" aria-hidden="true"><use href="#roof"/></svg>
+  <div class="wrap album__head">
+    <div>
+      <p class="tag tag--light">č. 3 &mdash; album</p>
+      <h2 class="h2 h2--light reveal">Rozhlédněte se</h2>
+    </div>
+    <div class="album__tabs" role="group" aria-label="Filtr fotek">
+      <button class="is-active" data-filter="vse">Vše<sup></sup></button>
+      <button data-filter="venku">Venku<sup></sup></button>
+      <button data-filter="uvnitr">Uvnitř<sup></sup></button>
+      <button data-filter="sklep">Sklep<sup></sup></button>
+      <button data-filter="okoli">Okolí<sup></sup></button>
+    </div>
+  </div>
+  <div class="album__track" id="gallery" tabindex="0" aria-label="Fotografie – posouvejte do stran"></div>
+  <div class="wrap album__foot">
+    <div class="album__bar"><span id="albumBar"></span></div>
+    <div class="album__nav">
+      <button class="round round--light" id="albumPrev" aria-label="Předchozí fotky"><svg><use href="#i-left"/></svg></button>
+      <button class="round round--light" id="albumNext" aria-label="Další fotky"><svg><use href="#i-right"/></svg></button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ REZERVACE ============ -->
+<section class="section booking" id="rezervace">
+  <svg class="wave wave--top" aria-hidden="true"><use href="#roof"/></svg>
+  <div class="wrap">
+    <div class="booking__head">
+      <p class="tag">č. 4 &mdash; rezervace</p>
+      <h2 class="h2 reveal">Kdy <em>přijedete?</em></h2>
+      <p class="sub reveal">Klikněte na den příjezdu a&nbsp;pak na den odjezdu. Cenu spočítáme hned, platit zatím nic nemusíte.</p>
+    </div>
+
+    <div class="booking__grid">
+      <div class="cal" id="calendar">
+        <div class="cal__top">
+          <button class="round" id="calPrev" aria-label="Předchozí měsíc"><svg><use href="#i-left"/></svg></button>
+          <div class="cal__steps" aria-live="polite">
+            <span class="step" id="stepIn"><small>příjezd</small><b>—</b></span>
+            <span class="step__dash"></span>
+            <span class="step" id="stepOut"><small>odjezd</small><b>—</b></span>
+          </div>
+          <button class="round" id="calNext" aria-label="Další měsíc"><svg><use href="#i-right"/></svg></button>
+        </div>
+        <div class="cal__months" id="calMonths"></div>
+        <div class="cal__legend">
+          <span><i class="lg lg--busy"></i>obsazeno</span>
+          <span><i class="lg lg--season"></i>léto: jen so–so</span>
+          <span><i class="lg lg--sel"></i>váš pobyt</span>
+        </div>
+        <p class="cal__msg" id="calMsg" role="status"></p>
+      </div>
+
+      <form class="bform" id="bookingForm" novalidate>
+        <div class="ticket" id="summary"></div>
+
+        <fieldset class="guests">
+          <legend>Kdo přijede</legend>
+          <div class="stepper" data-field="dospeli" data-min="1">
+            <span><b>Dospělí a&nbsp;děti od 3&nbsp;let</b><small>nejvýš 6</small></span>
+            <div class="stepper__ctl"><button type="button" aria-label="Ubrat"><svg><use href="#i-minus"/></svg></button><output>2</output><button type="button" aria-label="Přidat"><svg><use href="#i-plus"/></svg></button></div>
+          </div>
+          <div class="stepper" data-field="miminka" data-min="0">
+            <span><b>Děti do 3&nbsp;let</b><small>postýlka zdarma</small></span>
+            <div class="stepper__ctl"><button type="button" aria-label="Ubrat"><svg><use href="#i-minus"/></svg></button><output>0</output><button type="button" aria-label="Přidat"><svg><use href="#i-plus"/></svg></button></div>
+          </div>
+          <div class="stepper" data-field="psi" data-min="0">
+            <span><b>Pejsci</b><small>125 Kč za noc, na místě</small></span>
+            <div class="stepper__ctl"><button type="button" aria-label="Ubrat"><svg><use href="#i-minus"/></svg></button><output>0</output><button type="button" aria-label="Přidat"><svg><use href="#i-plus"/></svg></button></div>
+          </div>
+        </fieldset>
+
+        <div class="fields">
+          <label class="field field--full"><span>Jméno a&nbsp;příjmení</span><input type="text" name="jmeno" autocomplete="name" required></label>
+          <label class="field"><span>E-mail</span><input type="email" name="email" autocomplete="email" required></label>
+          <label class="field"><span>Telefon</span><input type="tel" name="telefon" autocomplete="tel" required></label>
+          <label class="field field--full"><span>Vzkaz <small>(nepovinné)</small></span><textarea name="zprava" rows="2"></textarea></label>
+        </div>
+
+        <label class="check">
+          <input type="checkbox" name="souhlas" required>
+          <span class="check__box"><svg><use href="#i-check"/></svg></span>
+          <span>Souhlasím s&nbsp;<a href="#podminky" data-open-terms>rezervačními podmínkami</a> a&nbsp;se <a href="ochrana-osobnich-udaju.html">zpracováním osobních údajů</a>.</span>
+        </label>
+        <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off">
+
+        <button class="btn btn--ink btn--lg btn--block" type="submit" id="submitBtn"><span>Odeslat nezávaznou poptávku</span><svg><use href="#i-arrow"/></svg></button>
+        <p class="bform__note">Termín potvrdíme e-mailem nebo telefonem, obvykle do 24&nbsp;hodin.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CENÍK ============ -->
+<section class="section pricing" id="cenik">
+  <div class="wrap">
+    <div class="pricing__head">
+      <p class="tag">č. 5 &mdash; ceník</p>
+      <h2 class="h2 reveal">Ročník <em data-year-price>2027</em></h2>
+      <p class="sub reveal">Cena je vždy za celý dům. Místní poplatek obci je v&nbsp;ceně, elektřinu a&nbsp;plyn vyúčtujeme podle spotřeby.</p>
+    </div>
+
+    <div class="labels">
+      <article class="label label--brick reveal">
+        <div class="label__in">
+          <p class="label__house">Dům u&nbsp;Slunce a&nbsp;Vína</p>
+          <svg class="label__sun"><use href="#i-sun"/></svg>
+          <h3>Léto</h3>
+          <p class="label__kind">hlavní sezóna · <span id="seasonDates">27. 6. – 5. 9.</span></p>
+          <p class="label__price"><b data-price="sezona">19 950</b> Kč</p>
+          <p class="label__unit">za týden ze soboty na sobotu</p>
+          <p class="label__foot">obsah 7 nocí · jen týdenní pobyty</p>
+        </div>
+      </article>
+
+      <article class="label reveal">
+        <div class="label__in">
+          <p class="label__house">Dům u&nbsp;Slunce a&nbsp;Vína</p>
+          <svg class="label__sun"><use href="#i-sun"/></svg>
+          <h3>Podzim, zima, jaro</h3>
+          <p class="label__kind">mimo sezónu · nejméně 3 noci</p>
+          <dl class="label__rows">
+            <div><dt>po – čt</dt><dd><span data-price="vsedni">2 900</span> Kč / noc</dd></div>
+            <div><dt>pá – ne, svátky, prázdniny</dt><dd><span data-price="vikend">3 000</span> Kč / noc</dd></div>
+            <div><dt>celý týden</dt><dd><span data-price="tyden">18 200</span> Kč</dd></div>
+          </dl>
+          <p class="label__foot">s&nbsp;lahví vína na uvítanou</p>
+        </div>
+      </article>
+
+      <article class="label label--sage reveal">
+        <div class="label__in">
+          <p class="label__house">Na místě navíc</p>
+          <dl class="label__rows label__rows--tight">
+            <div><dt>elektřina</dt><dd>12 Kč / kWh</dd></div>
+            <div><dt>plyn</dt><dd>35 Kč / kWh</dd></div>
+            <div><dt>pes</dt><dd>125 Kč / noc</dd></div>
+            <div><dt>vratná kauce</dt><dd>3 000 Kč</dd></div>
+            <div><dt>úklid*</dt><dd>1 000 Kč</dd></div>
+          </dl>
+          <p class="label__foot">* jen když dům nepředáte, jak jste ho převzali</p>
+        </div>
+      </article>
+    </div>
+
+    <div class="terms" id="podminky">
+      <details class="acc reveal" open>
+        <summary>Příjezd a&nbsp;odjezd <svg><use href="#i-plus"/></svg></summary>
+        <div class="acc__body">
+          <p>Příjezd mezi <b>15:00 a&nbsp;18:00</b>, odjezd <b>do 10:00</b> (nebo podle domluvy). Oba časy nám dejte vědět předem, ať vám můžeme předat klíče.</p>
+          <p>Ubytování je pro 4 osoby, s&nbsp;přistýlkami nejvýš 6, plus jedno dítě do 3 let.</p>
+        </div>
+      </details>
+      <details class="acc reveal">
+        <summary>Platba <svg><use href="#i-plus"/></svg></summary>
+        <div class="acc__body">
+          <p>Po potvrzení rezervace pošlete <b>zálohu 50&nbsp;%</b> převodem do 3 pracovních dnů. Zbytek nejpozději 14 dní před příjezdem, nebo po domluvě v&nbsp;hotovosti v&nbsp;den příjezdu.</p>
+          <p>Na místě vybíráme vratnou kauci 3&nbsp;000 Kč, ze které odečteme spotřebu elektřiny a&nbsp;plynu.</p>
+        </div>
+      </details>
+      <details class="acc reveal">
+        <summary>Storno a&nbsp;změna termínu <svg><use href="#i-plus"/></svg></summary>
+        <div class="acc__body">
+          <p>Rezervaci můžete zrušit do 3 dnů od jejího vytvoření. Po zaplacení zálohy je závazná a&nbsp;záloha je nevratná – pobyt ale můžete přesunout na jiný volný termín, nejpozději do 6 měsíců od vytvoření rezervace.</p>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ OKOLÍ ============ -->
+<section class="section around" id="okoli">
+  <svg class="wave wave--top" aria-hidden="true"><use href="#roof"/></svg>
+  <div class="wrap around__grid">
+    <div class="around__map tripmap" id="tripMapBox">
+      <div class="tripmap__map" id="tripMap" role="region" aria-label="Mapa výletů kolem Olbramovic"></div>
+      <div class="tripmap__ctrl">
+        <button class="btn btn--brick tripmap__cellar" id="mapCellar" type="button"><svg><use href="#i-sun"/></svg>Kde je sklípek</button>
+        <button class="btn btn--ink tripmap__back" id="mapTrips" type="button"><svg><use href="#i-left"/></svg>Všechny výlety</button>
+      </div>
+      <p class="tripmap__hint hand" aria-hidden="true">klikněte do mapy<br>a ukážeme vám sklípek</p>
+    </div>
+    <div>
+      <p class="tag">č. 6 &mdash; okolí</p>
+      <h2 class="h2 reveal">Kam se <em>vydat</em></h2>
+      <p class="sub reveal">Kolem domu vede Vinařská stezka Znojemská. Na kole objedete sklepy, zámky i&nbsp;rozhledny, autem jste za půl hodiny pod Pálavou.</p>
+      <ol class="trips" id="trips"></ol>
+    </div>
+  </div>
+
+  <div class="wrap vinari" id="vinari">
+    <p class="hand vinari__title">víno přímo od sousedů:</p>
+    <ul class="vinari__list">
+      <li class="reveal"><b>Lenka Palkovičová</b><span>ochutnávky, prodej, fortifikované víno ve stylu Porto</span><a href="tel:+420736544850">736 544 850</a></li>
+      <li class="reveal"><b>Pavel Matouš</b><span>lahvové i&nbsp;stáčené víno, ochutnávky</span><a href="tel:+420731469324">731 469 324</a></li>
+      <li class="reveal"><b>Markovy vinné sklepy</b><span>rodinné sklepy v&nbsp;obci</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ KONTAKT ============ -->
+<section class="section contact" id="kontakt">
+  <svg class="wave wave--top" aria-hidden="true"><use href="#roof"/></svg>
+  <div class="wrap">
+    <p class="tag tag--light">č. 7 &mdash; kontakt</p>
+    <a class="contact__phone reveal" href="tel:+420608965498"><span>+420</span> 608&nbsp;965&nbsp;498</a>
+    <div class="contact__grid">
+      <div class="contact__info">
+        <p class="reveal">Volejte, pište, posílejte zprávy na WhatsApp nebo Viber. Rádi poradíme s&nbsp;termínem i&nbsp;s&nbsp;výlety – a&nbsp;klidně i&nbsp;s&nbsp;vánočním nebo silvestrovským pobytem.</p>
+        <ul class="clist">
+          <li class="reveal"><small>e-mail</small><a href="mailto:olbramovicerelax@gmail.com">olbramovicerelax@gmail.com</a></li>
+          <li class="reveal"><small>zprávy</small><span><a href="https://wa.me/420608965498" target="_blank" rel="noopener">WhatsApp</a> / Viber</span></li>
+          <li class="reveal"><small>adresa</small><span>Olbramovice 344, 671&nbsp;76</span></li>
+          <li class="reveal"><small>jinde</small><span class="social"><a href="https://www.facebook.com/olbramovicesunandwine" target="_blank" rel="noopener" aria-label="Facebook"><svg><use href="#i-fb"/></svg></a><a href="https://www.instagram.com/uslunceavina_olbramovicerelax" target="_blank" rel="noopener" aria-label="Instagram"><svg><use href="#i-ig"/></svg></a></span></li>
+        </ul>
+      </div>
+      <div class="map reveal" id="map">
+        <img src="img/dum-ulice-s.jpg" alt="Dům u Slunce a Vína z ulice" loading="lazy">
+        <div class="map__overlay">
+          <button class="btn btn--brick" id="mapBtn" type="button">Ukázat na mapě</button>
+          <a class="btn btn--line" href="https://mapy.cz/zakladni?source=coor&amp;id=16.39274,48.99407&amp;x=16.39274&amp;y=48.99407&amp;z=18" target="_blank" rel="noopener">Navigovat (Mapy.cz)</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap footer__inner">
+    <svg class="footer__sun"><use href="#i-sun"/></svg>
+    <p>Dům u&nbsp;Slunce a&nbsp;Vína · IČO 083 21 736 · © <span id="year">2026</span></p>
+    <p><a href="ochrana-osobnich-udaju.html">Ochrana osobních údajů</a> · foto <a href="https://www.pavelphotography.cz/" target="_blank" rel="noopener">Pavel Photography</a></p>
+    <p class="footer__credit"><a href="https://skocdal.cz" target="_blank" rel="noopener">Tvorba webu <b>SkočDál</b></a></p>
+  </div>
+</footer>
+
+<a class="fab" href="#rezervace" id="fab">Rezervovat</a>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Fotografie" hidden>
+  <button class="lightbox__close" aria-label="Zavřít"><svg><use href="#i-close"/></svg></button>
+  <button class="lightbox__nav lightbox__prev" aria-label="Předchozí"><svg><use href="#i-left"/></svg></button>
+  <figure><img alt=""><figcaption></figcaption></figure>
+  <button class="lightbox__nav lightbox__next" aria-label="Další"><svg><use href="#i-right"/></svg></button>
+</div>
+
+<div class="modal" id="doneModal" role="dialog" aria-modal="true" aria-labelledby="doneTitle" hidden>
+  <div class="modal__card">
+    <svg class="modal__sun"><use href="#i-sun"/></svg>
+    <h3 id="doneTitle">Děkujeme!</h3>
+    <div id="doneText"></div>
+    <button class="btn btn--ink" type="button" data-close>Zavřít</button>
+  </div>
+</div>
+
+<script src="js/config.js"></script>
+<script src="js/obsazenost.js"></script>
+<script src="vendor/leaflet/leaflet.js"></script>
+<script src="js/main.js"></script>
+<script src="js/rezervace.js"></script>
+</body>
+</html>
